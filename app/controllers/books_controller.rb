@@ -5,6 +5,7 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
+
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
@@ -44,8 +45,8 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    book = Book.find(params[:id])  # データ（レコード）を1件取得
-    book.destroy  # データ（レコード）を削除
+    book = Book.find(params[:id])
+    book.destroy
     redirect_to books_path
   end
 
